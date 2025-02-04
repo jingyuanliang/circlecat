@@ -6,6 +6,11 @@ const ranges = [
 ];
 
 function FindProxyForURL(url, host) {
+  if (host === "review.circlecat.org") {
+    alert(`${host} is forced to be proxied.`);
+    return proxy;
+  }
+
   const ip = dnsResolve(host);
   if (ip === null) {
     alert(`${host} does not resolve locally.`);
